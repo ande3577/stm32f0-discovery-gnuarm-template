@@ -1,5 +1,5 @@
 #STM32F0-Discovery GNUARM Application Template
-This package is for use when compiling programs for STM32F05xx ARM microcontrollers using arm-none-eabi-gcc (I'm using the [Code Sourcery G++:Lite Edition](http://www.mentor.com/embedded-software/sourcery-tools/sourcery-codebench/editions/lite-edition/) toolchain). The Makefile in the main directory will call the Make file in the Libraries directory, thereby automatically building the STM peripheral library. However, running 'make clean' will not affect the peripherals library (the same command can be run from the Libraries directory to do this).
+This package is for use when compiling programs for STM32F05xx ARM microcontrollers using arm-none-eabi-gcc (I'm using the [Code Sourcery G++:Lite Edition](http://www.mentor.com/embedded-software/sourcery-tools/sourcery-codebench/editions/lite-edition/) toolchain).
 
 This template will serve as a quick-start for those who do not wish to use an IDE, but rather develop in a text editor of choice and build from the command line. It is based on [STM32F0-Discovery Application Template](https://github.com/szczys/stm32f0-discovery-basic-template) by Mike Szczys, which is in turn based on [an example template for the F4 Discovery board](http://jeremyherbert.net/get/stm32f4_getting_started) put together by Jeremy Herbert.
 
@@ -28,7 +28,7 @@ This template will serve as a quick-start for those who do not wish to use an ID
 
 5. extra/
    * This contains a procedure file used to write the image to the board via OpenOCD
-   * **Abstracting the extra folder:** the .cfg file in the extra folder may be placed anywhere so that multiple projects can use one file. Just change the OPENOCD_PROC_FILE variable in the Make file to match the new location.
+   * **Abstracting the extra folder:** the .cfg file in the extra folder may be placed anywhere so that multiple projects can use one file. Just change the include directories in the project configuration to match the new location.
 
 ##Debugging the board
 
@@ -39,7 +39,7 @@ OpenOCD must be installed with stlink enabled. Clone [the git repository](http:/
     make 
     sudo make install
 
-    > openocd -f $OPEN_OCD_PATH$/tcl/board/stm32f0discovery.cfg  -c "init" -c "halt" -c "reset halt"
+    openocd -f $OPEN_OCD_PATH$/tcl/board/stm32f0discovery.cfg  -c "init" -c "halt" -c "reset halt"
 
 Now debug the project in eclipse.  Include the following settings:
     

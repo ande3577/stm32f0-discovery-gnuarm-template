@@ -4,7 +4,7 @@ void SysTick_Handler(void) {
   static uint16_t tick = 0;
 
   switch (tick++) {
-  	case 10:
+  	case 100:
   		tick = 0;
   		GPIOC->ODR ^= (1 << 8);
   		break;
