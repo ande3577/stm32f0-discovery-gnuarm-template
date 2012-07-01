@@ -43,13 +43,17 @@ OpenOCD must be installed with stlink enabled. Clone [the git repository](http:/
     > openocd -f $OPEN_OCD_PATH$/tcl/board/stm32f0discovery.cfg  -c "init" -c "halt" -c "reset halt"
 
 Now debug the project in eclipse.  Include the following settings:
-    ###Debugger Settings:
+    
+**Debugger Settings:**
+
 	* gdb command: arm-none-eabi-gdb
 	* Use remote target: checked
 	* Jtag Device: Generic tcp/ip
 	* Host Name or IP Address: localhost
 	* Port number: 3333
-    ###Startup Settings:
+
+**Startup Settings:**
+
 	* Initialization Commands: monitor reset halt
 
 
