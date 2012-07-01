@@ -46,15 +46,15 @@ Now debug the project in eclipse.  Include the following settings:
     
 **Debugger Settings:**
 
-	* gdb command: arm-none-eabi-gdb
-	* Use remote target: checked
-	* Jtag Device: Generic tcp/ip
-	* Host Name or IP Address: localhost
-	* Port number: 3333
+* gdb command: arm-none-eabi-gdb
+* Use remote target: checked
+* Jtag Device: Generic tcp/ip
+* Host Name or IP Address: localhost
+* Port number: 3333
 
 **Startup Settings:**
 
-	* Initialization Commands: monitor reset halt
+* Initialization Commands: monitor reset halt
 
 
 
