@@ -31,13 +31,26 @@ This template will serve as a quick-start for those who do not wish to use an ID
    * This contains a procedure file used to write the image to the board via OpenOCD
    * **Abstracting the extra folder:** the .cfg file in the extra folder may be placed anywhere so that multiple projects can use one file. Just change the OPENOCD_PROC_FILE variable in the Make file to match the new location.
 
-##Loading the image on the board
+##Debugging the board
 
-If you have OpenOCD installed 'make program' can be used to flash the .bin file to the board. OpenOCD must be installed with stlink enabled. Clone [the git repository](http://openocd.git.sourceforge.net/git/gitweb.cgi?p=openocd/openocd;a=summary) and use these commands to compile/install it:
+OpenOCD must be installed with stlink enabled. Clone [the git repository](http://openocd.git.sourceforge.net/git/gitweb.cgi?p=openocd/openocd;a=summary) and use these commands to compile/install it:
 
     ./bootstrap
     ./configure --prefix=/usr --enable-maintainer-mode --enable-stlink
     make 
     sudo make install
 
-If there is an error finding the .cfg file, please double-check the OPENOCD_BOARD_DIR constant at the top of the Makefile (in this template directory, not in OpenOCD).
+    > openocd -f $OPEN_OCD_PATH$/tcl/board/stm32f0discovery.cfg  -c "init" -c "halt" -c "reset halt"
+
+Now debug the project in eclipse.  Include the following settings:
+    ###Debugger Settings:
+	* gdb command: arm-none-eabi-gdb
+	* Use remote target: checked
+	* Jtag Device: Generic tcp/ip
+	* Host Name or IP Address: localhost
+	* Port number: 3333
+    ###Startup Settings:
+	* Initialization Commands: monitor reset halt
+
+
+
